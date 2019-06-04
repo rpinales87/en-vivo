@@ -137,8 +137,7 @@ class CreateEvent extends Component {
             type="text"
             value={details}
             name="details"
-            required
-            placeholder="Additional info"
+            placeholder="Optional"
             onChange={this.handleChange}
           />
         </Form.Group>
