@@ -45,17 +45,17 @@ class App extends Component {
           </Alert>
         ))}
         <main className="container">
-          <Route path='/' render={() => (
+          <Route exact path='/' render={() => (
             <Events alert={this.alert} user={user} />
-          )} />
-          <Route user={user} path='/create-event' render={() => (
-            <CreateEvent alert={this.alert} clearUser={this.clearUser} user={user} />
           )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
           <Route path='/sign-in' render={() => (
             <SignIn alert={this.alert} setUser={this.setUser} />
+          )} />
+          <AuthenticatedRoute user={user} path='/create-event' render={() => (
+            <CreateEvent alert={this.alert} clearUser={this.clearUser} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />

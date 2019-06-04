@@ -23,7 +23,13 @@ class Events extends Component {
   }
 
   destroy = id => {
-    axios.delete(`${apiUrl}/events/${id}`)
+    axios({
+      url: `${apiUrl}/events/${id}`,
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Token token=${this.props.user.token}`
+      }
+    })
       .then(() => this.props.alert('Event deleted!', 'success'))
       .then(() => {
         axios(`${apiUrl}/events`)
@@ -41,14 +47,9 @@ class Events extends Component {
 
     return (
       <Fragment>
-        <div className="d-flex justify-content-between align-items-center py-3">
-          <h3 className="m-0">Events</h3>
-          {!user && <p className="m-0">Sign in to add/edit events</p>}
-          {user && <Button variant="success" href="#create-event">Create Event</Button>}
-        </div>
         <ListGroup>
           { user && events.map(event => (
-            <ListGroup.Item key={event.id} action>
+            <ListGroup.Item key={event.id}>
               <span className="h5 d-block">{event.name}</span>
               <span className="d-block">{event.type}</span>
               <span className="d-block">{event.date} at {event.time}</span>

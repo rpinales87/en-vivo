@@ -6,16 +6,15 @@ import './Header.scss'
 
 const authenticatedOptions = (
   <React.Fragment>
+    <Nav.Link href="#create-event">Create Event</Nav.Link>
+    <Nav.Link href="#events">My Events</Nav.Link>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
-    <Nav.Link href="#events">My Events</Nav.Link>
   </React.Fragment>
 )
 
 const unauthenticatedOptions = (
   <React.Fragment>
-    <Nav.Link href="#create-event">Create Event</Nav.Link>
-    <Nav.Link href="#events">Events</Nav.Link>
     <Nav.Link href="#sign-up">Sign Up</Nav.Link>
     <Nav.Link href="#sign-in">Sign In</Nav.Link>
   </React.Fragment>

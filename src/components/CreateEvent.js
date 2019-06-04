@@ -133,13 +133,17 @@ class CreateEvent extends Component {
         </Form.Group>
         <Form.Group controlId="details">
           <Form.Label>Additional info</Form.Label>
-          <Form.Control
-            type="text"
-            value={details}
-            name="details"
-            placeholder="Optional"
-            onChange={this.handleChange}
-          />
+          <div>
+            <textarea
+              row='4'
+              col='20'
+              type="text"
+              value={details}
+              name="details"
+              placeholder="Optional"
+              onChange={this.handleChange}
+            />
+          </div>
         </Form.Group>
 
         <Button
