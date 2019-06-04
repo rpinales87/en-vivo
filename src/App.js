@@ -8,6 +8,8 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+import Events from './components/Events'
+import CreateEvent from './components/CreateEvent'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -43,6 +45,12 @@ class App extends Component {
           </Alert>
         ))}
         <main className="container">
+          <Route path='/' render={() => (
+            <Events alert={this.alert} user={user} />
+          )} />
+          <Route user={user} path='/create-event' render={() => (
+            <CreateEvent alert={this.alert} clearUser={this.clearUser} user={user} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
