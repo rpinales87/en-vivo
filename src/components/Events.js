@@ -3,6 +3,7 @@ import axios from 'axios'
 import ListGroup from 'react-bootstrap/ListGroup'
 import apiUrl from '../apiConfig'
 import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
 class Events extends Component {
   constructor () {
@@ -44,7 +45,7 @@ class Events extends Component {
   render () {
     const { user } = this.props
     const { events } = this.state
-
+    console.log('this.state is: ', this.state)
     return (
       <Fragment>
         <ListGroup>
@@ -56,6 +57,7 @@ class Events extends Component {
               <span className="d-block">{event.venue}</span>
               <span className="d-block">{event.details}</span>
 
+              <Link to={'/update-event/' + event.id}>Update Event details</Link>
               <Button variant="danger" onClick={() => this.destroy(event.id)}>Cancel event</Button>
             </ListGroup.Item>
           )) }
