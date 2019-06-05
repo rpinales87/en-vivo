@@ -44,8 +44,11 @@ class Events extends Component {
 
   render () {
     const { user } = this.props
+    console.log('this.props on eventjs render is: ', this.props)
+    console.log('user on event.js is: ', user)
     const { events } = this.state
-    console.log('this.state is: ', this.state)
+    console.log('this.state on event.js is: ', this.state)
+    console.log('events on event.js is: ', events)
     return (
       <Fragment>
         <ListGroup>
@@ -57,8 +60,8 @@ class Events extends Component {
               <span className="d-block">{event.venue}</span>
               <span className="d-block">{event.details}</span>
 
-              <Link to={'/update-event/' + event.id}>Update Event details</Link>
-              <Button variant="danger" onClick={() => this.destroy(event.id)}>Cancel event</Button>
+              { user && event.user.id === user.id && <Link to={'/update-event/' + event.id}>Update Event details</Link> }
+              { user && event.user.id === user.id && <Button variant="danger" onClick={() => this.destroy(event.id)}>Cancel event</Button> }
             </ListGroup.Item>
           )) }
           { !user && events.map(event => (
