@@ -11,6 +11,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import Events from './components/Events'
 import CreateEvent from './components/CreateEvent'
 import UpdateEvent from './components/UpdateEvent'
+import MyEvents from './components/MyEvents'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -57,6 +58,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/create-event' render={() => (
             <CreateEvent alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/my-events' render={() => (
+            <MyEvents alert={this.alert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/update-event/:id' render={() => (
             <UpdateEvent alert={this.alert} user={user} />

@@ -7,7 +7,7 @@ import './Header.scss'
 const authenticatedOptions = (
   <React.Fragment>
     <Nav.Link href="#create-event">Create Event</Nav.Link>
-    <Nav.Link href="#events">My Events</Nav.Link>
+    <Nav.Link href="#my-events">My Events</Nav.Link>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
   </React.Fragment>
