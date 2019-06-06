@@ -1,6 +1,6 @@
 # enVivo
 -------------------------
-Welcome to ebVivo, this a platform for people looking for live events or to create and promote events,
+Welcome to enVivo, this a platform for people looking for live events or to create and promote events,
 as a register user will be able to create and manage events, as a visitor you can check upcoming events.
 
 ### Technologies used
