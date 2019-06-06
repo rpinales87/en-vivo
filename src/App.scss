@@ -29,12 +29,12 @@ $charcoal: #ccc;
   background-color: $error;
 }
 
-.auth-form {
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 15% auto 0;
-  max-width: 600px;
+  max-width: 25em;
 
   h3,
   input {

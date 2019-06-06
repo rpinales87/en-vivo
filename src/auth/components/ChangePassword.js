@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 import { changePassword } from '../api'
 import messages from '../messages'
@@ -26,10 +27,9 @@ class ChangePassword extends Component {
     changePassword(this.state, user)
       .then(() => alert(messages.changePasswordSuccess, 'success'))
       .then(() => history.push('/'))
-      .catch(error => {
-        console.error(error)
-        this.setState({ oldPassword: '', newPassword: '' })
+      .catch(() => {
         alert(messages.changePasswordFailure, 'danger')
+        this.setState({ oldPassword: '', newPassword: '' })
       })
   }
 
@@ -37,7 +37,7 @@ class ChangePassword extends Component {
     const { oldPassword, newPassword } = this.state
 
     return (
-      <form className='auth-form' onSubmit={this.onChangePassword}>
+      <form className='form' onSubmit={this.onChangePassword}>
         <h3>Change Password</h3>
 
         <label htmlFor="oldpw">Old Password</label>
@@ -58,7 +58,7 @@ class ChangePassword extends Component {
           placeholder="New Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Change Password</button>
+        <Button type="submit">Change Password</Button>
       </form>
     )
   }

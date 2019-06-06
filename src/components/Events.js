@@ -22,21 +22,20 @@ class Events extends Component {
       .then(res => {
         this.setState({ events: res.data.events })
       })
-      .catch(console.error)
+      .catch(() => {
+        alert('Something went wrong, please try again', 'danger')
+      })
   }
 
   render () {
     const { user } = this.props
-    // console.log('this.props on eventjs render is: ', this.props)
-    // console.log('user on event.js is: ', user)
     const { events } = this.state
-    // console.log('this.state on event.js is: ', this.state)
-    // console.log('events on event.js is: ', events)
     return (
       <Fragment>
         <ListGroup>
           { user && events.map(event => (
             <ListGroup.Item key={event.id}>
+              <p>{event.venue} presents:</p>
               <span className="h5 d-block">{event.name}</span>
               <span className="d-block">{event.type}</span>
               <span className="d-block">{event.date} at {event.time}</span>
@@ -92,6 +91,7 @@ class Events extends Component {
           }
           { !user && events.map(event => (
             <ListGroup.Item key={event.id}>
+              <p>{event.venue} presents:</p>
               <span className="h5 d-block">{event.name}</span>
               <span className="d-block">{event.type}</span>
               <span className="d-block">{event.date} at {event.time}</span>

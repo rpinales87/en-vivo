@@ -121,29 +121,25 @@ class CreateEvent extends Component {
           />
         </Form.Group>
         <Form.Group controlId="venue">
-          <Form.Label>Location</Form.Label>
+          <Form.Label>Venue</Form.Label>
           <Form.Control
             type="text"
             value={venue}
             name="venue"
             required
-            placeholder="Location name"
+            placeholder="Venue name"
             onChange={this.handleChange}
           />
         </Form.Group>
         <Form.Group controlId="details">
           <Form.Label>Additional info</Form.Label>
-          <div>
-            <textarea
-              row='4'
-              col='20'
-              type="text"
-              value={details}
-              name="details"
-              placeholder="Optional"
-              onChange={this.handleChange}
-            />
-          </div>
+          <Form.Control
+            type="text"
+            value={details}
+            name="details"
+            placeholder="City, tickets price, etc..."
+            onChange={this.handleChange}
+          />
         </Form.Group>
 
         <Button
@@ -152,14 +148,6 @@ class CreateEvent extends Component {
           className="m-1"
         >
           Submit
-        </Button>
-        <Button
-          variant="danger"
-          type="button"
-          className="m-1"
-          onClick={this.resetForm}
-        >
-          Reset
         </Button>
       </Form>
     )

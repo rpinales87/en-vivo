@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 import { signUp, signIn } from '../api'
 import messages from '../messages'
@@ -29,10 +30,9 @@ class SignUp extends Component {
       .then(res => setUser(res.data.user))
       .then(() => alert(messages.signUpSuccess, 'success'))
       .then(() => history.push('/'))
-      .catch(error => {
-        console.error(error)
-        this.setState({ email: '', password: '', passwordConfirmation: '' })
+      .catch(() => {
         alert(messages.signUpFailure, 'danger')
+        this.setState({ email: '', password: '', passwordConfirmation: '' })
       })
   }
 
@@ -40,7 +40,7 @@ class SignUp extends Component {
     const { email, password, passwordConfirmation } = this.state
 
     return (
-      <form className='auth-form' onSubmit={this.onSignUp}>
+      <form className='form' onSubmit={this.onSignUp}>
         <h3>Sign Up</h3>
 
         <label htmlFor="email">Email</label>
@@ -70,7 +70,7 @@ class SignUp extends Component {
           placeholder="Confirm Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
       </form>
     )
   }

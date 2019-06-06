@@ -50,7 +50,9 @@ class UpdateEvent extends Component {
           this.setState({ updated: true })
         })
         .then(() => this.props.history.push('/my-events'))
-        .catch(console.error)
+        .catch(() => {
+          alert('Something went wrong, please try again!', 'danger')
+        })
     }
 
     render () {
@@ -116,17 +118,13 @@ class UpdateEvent extends Component {
           </Form.Group>
           <Form.Group controlId="details">
             <Form.Label>Additional info</Form.Label>
-            <div>
-              <textarea
-                row='4'
-                col='20'
-                type="text"
-                value={details}
-                name="details"
-                placeholder="Optional"
-                onChange={this.handleChange}
-              />
-            </div>
+            <Form.Control
+              type="text"
+              value={details}
+              name="details"
+              placeholder="City, tickets price, etc..."
+              onChange={this.handleChange}
+            />
           </Form.Group>
 
           <Button
@@ -135,14 +133,6 @@ class UpdateEvent extends Component {
             className="m-1"
           >
               Submit
-          </Button>
-          <Button
-            variant="danger"
-            type="button"
-            className="m-1"
-            onClick={this.resetForm}
-          >
-              Reset
           </Button>
         </Form>
       )
