@@ -24,15 +24,6 @@ class UpdateEvent extends Component {
     }
   }
 
-  componentDidMount () {
-    axios(`${apiUrl}/events/${this.props.match.params.id}`)
-      .then(res => {
-        this.setState({ event: res.data.event })
-        console.log('res.data.event is: ', res.data.event)
-      })
-      .catch(console.error)
-  }
-
   handleChange = event => {
     const updatedField = {
       [event.target.name]: event.target.value
@@ -58,7 +49,7 @@ class UpdateEvent extends Component {
         .then(res => {
           this.setState({ updated: true })
         })
-        .then(() => this.props.history.push('/'))
+        .then(() => this.props.history.push('/my-events'))
         .catch(console.error)
     }
 

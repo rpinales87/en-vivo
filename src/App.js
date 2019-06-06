@@ -13,7 +13,7 @@ import CreateEvent from './components/CreateEvent'
 import UpdateEvent from './components/UpdateEvent'
 import MyEvents from './components/MyEvents'
 
-import Alert from 'react-bootstrap/Alert'
+import AutoDismissAlert from './components-shared/AutoDismissAlert'
 
 class App extends Component {
   constructor () {
@@ -40,11 +40,12 @@ class App extends Component {
       <React.Fragment>
         <Header user={user} />
         {alerts.map((alert, index) => (
-          <Alert key={index} dismissible variant={alert.type}>
-            <Alert.Heading>
-              {alert.message}
-            </Alert.Heading>
-          </Alert>
+          <AutoDismissAlert
+            key={index}
+            alert={alert}
+            variant={alert.type}>
+            {alert.message}
+          </AutoDismissAlert>
         ))}
         <main className="container">
           <Route exact path='/' render={() => (
