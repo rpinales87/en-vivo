@@ -45,7 +45,7 @@ the issue queue was a big help this time around, I most of my situations I came 
 
 ##### Project links:
 * Front end repo: (https://github.com/rpinales87/en-vivo)
-* Front end deployed app: (https://robertopinales.com/en-vivo/#/)
+* Front end deployed app: (https://robertopinales.com/en-vivo)
 * Back end repo: (https://github.com/rpinales87/en-vivo-api)
 * Back end deployed api: (https://en-vivo.herokuapp.com/)
 
